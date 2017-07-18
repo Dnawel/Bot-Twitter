@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+require 'twitter'
+
+client =Twitter::REST::Client.new do |config|
+    config.consumer_key			= "a8YGWM7ETimTFmr8dwbAUPRfh"
+	config.consumer_secret 		= "4JcZNa9uRTtS17lU3bmhsrw0sK6hzptIftG8Cuf0LuCuLsxeSs"
+	config.access_token 		= "760314973-LPyK6KobRW7TByE1IbaCb6YRQEYJvimK7uBAXlFk"
+	config.access_token_secret ="GR414sg0n3S8A30FwRMhJNzB0PZFqxmdapQ4VHskpKSqa"
+end
+ 
+client.update('Tweet from the command line!')
+client.search("#ruby").take(50).each do |tweet|
+	puts tweet.text
+end
